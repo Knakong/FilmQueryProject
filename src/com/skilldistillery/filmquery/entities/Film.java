@@ -3,11 +3,11 @@ package com.skilldistillery.filmquery.entities;
 import java.util.Objects;
 
 public class Film {
-	private int Id;
+	private int id;
 	private String title;
 	private String description;
-	private short releaseYear;
-
+	private int releaseYear;
+	private String language;
 	private int languageId;
 	private int rentalDuration;
 	private double rentalRate;
@@ -20,14 +20,14 @@ public class Film {
 	
 	
 	
-	public Film(int id, String title, String description, short releaseYear, int languageId, int rentalDuration,
+	public Film(int id, String title, String description, int releaseYear2, String language, int rentalDuration,
 			double rentalRate, int length, double replacementCost, String rating, String specialFeatures) {
 		super();
-		Id = id;
+		this.id = id;
 		this.title = title;
 		this.description = description;
-		this.releaseYear = releaseYear;
-		this.languageId = languageId;
+		this.releaseYear = releaseYear2;
+		this.language = language;
 		this.rentalDuration = rentalDuration;
 		this.rentalRate = rentalRate;
 		this.length = length;
@@ -39,18 +39,18 @@ public class Film {
 
 	@Override
 	public String toString() {
-		return "Film [Id=" + Id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
-				+ ", languageId=" + languageId + ", rentalDuration=" + rentalDuration + ", rentalRate=" + rentalRate
-				+ ", length=" + length + ", replacementCost=" + replacementCost + ", rating=" + rating
-				+ ", specialFeatures=" + specialFeatures + "]";
+		return "Film [Id=" + id + ", title=" + title + ", description=" + description + ", releaseYear=" + releaseYear
+				+ ", language=" + language + ", languageId=" + languageId + ", rentalDuration=" + rentalDuration
+				+ ", rentalRate=" + rentalRate + ", length=" + length + ", replacementCost=" + replacementCost
+				+ ", rating=" + rating + ", specialFeatures=" + specialFeatures + "]";
 	}
-	
-	
+
+
 	public int getId() {
-		return Id;
+		return id;
 	}
 	public void setId(int id) {
-		Id = id;
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
@@ -64,10 +64,10 @@ public class Film {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public short getReleaseYear() {
+	public int getReleaseYear() {
 		return releaseYear;
 	}
-	public void setReleaseYear(short releaseYear) {
+	public void setReleaseYear(int releaseYear) {
 		this.releaseYear = releaseYear;
 	}
 	public int getLanguageId() {
@@ -114,7 +114,7 @@ public class Film {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Id);
+		return Objects.hash(id);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -125,7 +125,17 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		return Id == other.Id;
+		return id == other.id;
+	}
+
+
+	public String getLanguage() {
+		return language;
+	}
+
+
+	public void setLanguage(String language) {
+		this.language = language;
 	}
 	
 	
